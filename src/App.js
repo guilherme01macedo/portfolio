@@ -1,10 +1,13 @@
 import './App.scss';
+import CardsContainer from './components/CardsContainer';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div>
-     content here
-    </div>
+    <>
+      <Header />
+      <CardsContainer/>
+    </>
   );
 }
 

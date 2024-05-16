@@ -1,0 +1,33 @@
+.cardsContainer__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+    grid-template-areas: 
+      "stack contact about about"
+      "experience experience about about";
+  }
+
+  .cardsContainer__about {
+    background-color: #FFC857;
+    grid-area: about;
+    color: #323031;
+  }
+
+  .cardsContainer__stack {
+    background-color: #DB3A34;
+    color: #EEEEEE;
+    grid-area: stack;
+  }
+
+  .cardsContainer__experience {
+    background-color: #084C61;
+    grid-area: experience;
+    color: #EEEEEE;
+  }
+
+  .cardsContainer__contact {
+    background-color: #177E89;
+    grid-area: contact;
+    color: #EEEEEE;
+  }

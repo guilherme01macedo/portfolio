@@ -1,6 +1,7 @@
-$backgroundColor: rgb(3, 3, 3);
+$backgroundColor: #151515;
 
-*{
+body{
   background-color: $backgroundColor;
-  font-family: Roboto, sans-serif;  
+  font-family: Roboto, sans-serif;
+  color: rgba($color: #f3f3f3, $alpha: 1.0)
 }
