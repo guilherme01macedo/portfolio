@@ -9,7 +9,7 @@ export function TitleSlide({ slide }: { slide: Slide }) {
       {slide.body && (
         <p className="text-stage-fg/70 text-lg md:text-xl">{slide.body}</p>
       )}
-      <p className="text-stage-fg/50 text-sm">Press space, or scroll.</p>
+      <p className="text-stage-fg/50 text-sm">Press space or scroll.</p>
     </div>
   );
 }

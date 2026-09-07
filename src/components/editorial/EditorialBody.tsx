@@ -19,7 +19,7 @@ export function EditorialBody({ photos, playground, site }: Props) {
             From the road
           </h2>
           <p className="text-ink-muted max-w-2xl">
-            Hackathons, workshops, and the people who showed up.
+            Lisbon, New Delhi, Athens, and the people who showed up.
           </p>
           <PhotoGrid photos={photos} />
         </div>

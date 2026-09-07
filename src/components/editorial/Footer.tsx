@@ -7,7 +7,7 @@ export function Footer({ site }: { site: Site }) {
       <div className="mx-auto flex max-w-5xl flex-col gap-4">
         <p className="font-semibold">{site.name}</p>
         <p className="text-ink-muted">
-          {site.role}. {site.location}.
+          {site.role}, {site.location}.
         </p>
         <SocialLinks links={site.links} tone="light" />
       </div>
