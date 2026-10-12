@@ -6,6 +6,27 @@ import type { Photo } from './types';
  */
 export const photos: Photo[] = [
   {
+    slug: 'sui-basecamp-panel',
+    alt: 'Guilherme on stage with three other speakers in the "From Campus to Crypto: How to get Hired in Web3" panel at Sui Basecamp.',
+    width: 2400,
+    height: 1408,
+    event: 'Sui Basecamp',
+  },
+  {
+    slug: 'sui-basecamp-capsule-pitch',
+    alt: 'Guilherme presents Capsule, a commerce gateway for AI agents, on the main stage at Sui Basecamp.',
+    width: 1200,
+    height: 1600,
+    event: 'Sui Basecamp',
+  },
+  {
+    slug: 'sui-basecamp-try-on-demo',
+    alt: 'Guilherme gives a thumbs-up to a live demo that shows him trying on glasses on the big screen at Sui Basecamp.',
+    width: 1200,
+    height: 1600,
+    event: 'Sui Basecamp',
+  },
+  {
     slug: 'suihub-athens-workshop',
     alt: 'Guilherme presents a slide about transaction finality to a workshop room at SuiHub Athens.',
     width: 1600,
