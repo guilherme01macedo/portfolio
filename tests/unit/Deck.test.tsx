@@ -27,9 +27,9 @@ function mockReducedMotion(matches: boolean) {
 describe('Deck', () => {
   test('renders one section per slide and starts the counter at 1', () => {
     const sections = renderDeck();
-    expect(sections).toHaveLength(7);
+    expect(sections).toHaveLength(8);
     expect(sections[0]).toHaveAttribute('id', 'slide-title');
-    expect(screen.getByTestId('deck-counter')).toHaveTextContent('1 / 7');
+    expect(screen.getByTestId('deck-counter')).toHaveTextContent('1 / 8');
   });
 
   test('ArrowRight scrolls the next slide into view and advances the counter', async () => {
@@ -38,29 +38,29 @@ describe('Deck', () => {
     const scroll = vi.mocked(Element.prototype.scrollIntoView);
     expect(scroll).toHaveBeenCalledTimes(1);
     expect(scroll.mock.contexts[0]).toBe(sections[1]);
-    expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 7');
+    expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 8');
   });
 
   test('Space advances and ArrowLeft goes back', async () => {
     renderDeck();
     await userEvent.keyboard(' ');
-    expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 7');
+    expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 8');
     await userEvent.keyboard('{ArrowLeft}');
-    expect(screen.getByTestId('deck-counter')).toHaveTextContent('1 / 7');
+    expect(screen.getByTestId('deck-counter')).toHaveTextContent('1 / 8');
   });
 
   test('PageDown advances and PageUp goes back', async () => {
     renderDeck();
     await userEvent.keyboard('{PageDown}');
-    expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 7');
+    expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 8');
     await userEvent.keyboard('{PageUp}');
-    expect(screen.getByTestId('deck-counter')).toHaveTextContent('1 / 7');
+    expect(screen.getByTestId('deck-counter')).toHaveTextContent('1 / 8');
   });
 
   test('the observer is the source of truth for the counter', () => {
     const sections = renderDeck();
     act(() => intersect(sections[3], true));
-    expect(screen.getByTestId('deck-counter')).toHaveTextContent('4 / 7');
+    expect(screen.getByTestId('deck-counter')).toHaveTextContent('4 / 8');
   });
 
   test('keys are ignored and the HUD hides when no slide is in view', async () => {
@@ -73,7 +73,7 @@ describe('Deck', () => {
 
   test('a forward key on the last slide does not prevent the page from scrolling on', () => {
     const sections = renderDeck();
-    act(() => intersect(sections[6], true));
+    act(() => intersect(sections[7], true));
     const event = new KeyboardEvent('keydown', {
       key: ' ',
       bubbles: true,
@@ -102,8 +102,8 @@ describe('Deck', () => {
 
   test('clicking the current (last) slide does not scroll it again', async () => {
     const sections = renderDeck();
-    act(() => intersect(sections[6], true));
-    await userEvent.click(sections[6]);
+    act(() => intersect(sections[7], true));
+    await userEvent.click(sections[7]);
     expect(Element.prototype.scrollIntoView).not.toHaveBeenCalled();
   });
 
@@ -151,13 +151,13 @@ describe('Deck', () => {
       act(() => {
         window.dispatchEvent(event);
       });
-      expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 7');
+      expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 8');
       act(() => intersect(sections[4], true));
-      expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 7');
+      expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 8');
       act(() => {
         vi.advanceTimersByTime(400);
       });
-      expect(screen.getByTestId('deck-counter')).toHaveTextContent('5 / 7');
+      expect(screen.getByTestId('deck-counter')).toHaveTextContent('5 / 8');
     } finally {
       vi.useRealTimers();
     }
@@ -179,7 +179,7 @@ describe('Deck', () => {
       };
 
       pressArrowRight();
-      expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 7');
+      expect(screen.getByTestId('deck-counter')).toHaveTextContent('2 / 8');
 
       act(() => {
         vi.advanceTimersByTime(50);
@@ -195,12 +195,12 @@ describe('Deck', () => {
         vi.advanceTimersByTime(150);
       }); // +200 ms total
       pressArrowRight(); // extends the window to +600 ms
-      expect(screen.getByTestId('deck-counter')).toHaveTextContent('3 / 7');
+      expect(screen.getByTestId('deck-counter')).toHaveTextContent('3 / 8');
 
       act(() => {
         vi.advanceTimersByTime(200);
       }); // +400 ms total: the stale reconcile must not fire here
-      expect(screen.getByTestId('deck-counter')).toHaveTextContent('3 / 7');
+      expect(screen.getByTestId('deck-counter')).toHaveTextContent('3 / 8');
 
       act(() => {
         vi.advanceTimersByTime(50);
@@ -210,7 +210,7 @@ describe('Deck', () => {
       act(() => {
         vi.advanceTimersByTime(150);
       }); // +600 ms total: the window has closed
-      expect(screen.getByTestId('deck-counter')).toHaveTextContent('3 / 7');
+      expect(screen.getByTestId('deck-counter')).toHaveTextContent('3 / 8');
     } finally {
       vi.useRealTimers();
     }
@@ -219,7 +219,7 @@ describe('Deck', () => {
   test('a slide taller than the viewport is current once it covers 60% of it', () => {
     const sections = renderDeck();
     act(() => intersect(sections[2], true, 0.9));
-    expect(screen.getByTestId('deck-counter')).toHaveTextContent('3 / 7');
+    expect(screen.getByTestId('deck-counter')).toHaveTextContent('3 / 8');
     expect(screen.getByTestId('deck-hud')).toBeInTheDocument();
     act(() => intersect(sections[2], true, 0.3));
     expect(screen.queryByTestId('deck-hud')).not.toBeInTheDocument();

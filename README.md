@@ -1,6 +1,6 @@
 # guimacedo.com
 
-The personal site of Guilherme Macedo. The home page is a talk of seven
+The personal site of Guilherme Macedo. The home page is a talk of eight
 slides, then a body with photos and side projects.
 
 ## Run

@@ -35,6 +35,13 @@ export const slides: Slide[] = [
     ],
   },
   {
+    id: 'stage',
+    kind: 'photo',
+    title: 'The main stage.',
+    image: 'sui-basecamp-panel',
+    body: 'Two sessions at Sui Basecamp. First, a panel on how students get hired in Web3. Then, on the last day of the hackathon, I hosted the best teams on stage to talk about what they built and how it went.',
+  },
+  {
     id: 'hackathon',
     kind: 'photo',
     title: 'A hackathon weekend.',

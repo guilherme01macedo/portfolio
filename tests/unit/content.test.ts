@@ -20,11 +20,11 @@ describe('content validation', () => {
     expect(result.success).toBe(false);
   });
 
-  test('the real content is valid and has seven slides', () => {
+  test('the real content is valid and has eight slides', () => {
     const content = getContent();
-    expect(content.slides).toHaveLength(7);
+    expect(content.slides).toHaveLength(8);
     expect(content.slides[0].kind).toBe('title');
-    expect(content.slides[6].kind).toBe('end');
+    expect(content.slides[7].kind).toBe('end');
     expect(content.site.links.linkedin).toContain('linkedin.com');
   });
 

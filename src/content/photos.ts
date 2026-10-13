@@ -14,14 +14,14 @@ export const photos: Photo[] = [
   },
   {
     slug: 'sui-basecamp-capsule-pitch',
-    alt: 'Guilherme presents Capsule, a commerce gateway for AI agents, on the main stage at Sui Basecamp.',
+    alt: 'A hackathon builder presents Capsule, a commerce gateway for AI agents, on the main stage at Sui Basecamp.',
     width: 1200,
     height: 1600,
     event: 'Sui Basecamp',
   },
   {
     slug: 'sui-basecamp-try-on-demo',
-    alt: 'Guilherme gives a thumbs-up to a live demo that shows him trying on glasses on the big screen at Sui Basecamp.',
+    alt: 'Two people on stage give a thumbs-up during a live demo of a virtual glasses try-on at Sui Basecamp.',
     width: 1200,
     height: 1600,
     event: 'Sui Basecamp',
